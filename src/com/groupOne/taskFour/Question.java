@@ -8,7 +8,6 @@ public abstract class Question {
     Number answer;
     SecureRandom secureRandom = new SecureRandom();
     Number previousUserAnswer;
-    boolean timesUp = false;
     int score = 0;
     int levelLimit = 0;
     int levelNumber;
@@ -56,6 +55,10 @@ public abstract class Question {
 
     public int getLevelNumber() {
         return levelNumber;
+    }
+
+    public String getQuestionString() {
+        return questionString;
     }
 }
 

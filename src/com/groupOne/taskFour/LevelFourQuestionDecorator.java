@@ -1,12 +1,12 @@
 package com.groupOne.taskFour;
 
-public class LevelThreeQuestionDecorator extends QuestionDecorator {
+public class LevelFourQuestionDecorator extends QuestionDecorator {
     Question question;
 
-    public LevelThreeQuestionDecorator(Question question) {
+    public LevelFourQuestionDecorator(Question question) {
         this.question = question;
-        this.levelLimit = 10;
-        this.levelNumber = 3;
+        this.levelLimit = 12;
+        this.levelNumber = 4;
     }
 
     @Override
@@ -15,8 +15,10 @@ public class LevelThreeQuestionDecorator extends QuestionDecorator {
         int operand1 = 1 + secureRandom.nextInt(5);
         int operand2 = 1 + secureRandom.nextInt(5);
         int operand3 = 1 + secureRandom.nextInt(5);
-        questionString = stringBuilder.append(operand1).append(" * ").append(operand2).append(" * ").append(operand3).toString();
-        determineAnswer(operand1, operand2, operand3);
+        int operand4 = 1 + secureRandom.nextInt(5);
+        questionString = stringBuilder.append(operand1).append(" * ").append(operand2).append(" * ").append(operand3)
+                .append(" * ").append(operand4).toString();
+        determineAnswer(operand1, operand2, operand3, operand4);
         return questionString;
     }
 

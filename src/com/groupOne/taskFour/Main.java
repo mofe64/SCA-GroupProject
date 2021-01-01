@@ -24,9 +24,9 @@ public class Main {
                     }
                 }
             };
-            new Timer().schedule(task, 0, 5000);
-            String answer = pane.showInputDialog(question.generateQuestion());
-            if (answer != null) {
+            new Timer().schedule(task, 0, 10000);
+            String answer = pane.showInputDialog(null, question.generateQuestion(), "Level " + question.getLevelNumber(), 1);
+            if (answer != null && answer != "") {
                 userInput = Integer.parseInt(answer);
                 question.setUserAnswer(userInput);
                 question.updateScore();
@@ -34,7 +34,7 @@ public class Main {
             questionNo++;
         }
         pane.showMessageDialog(null, "Your score is " + question.getScore() + "/" + question.getLevelLimit());
-        if (question.getScore() > 1 + (question.getLevelLimit() / 2)) {
+        if (question.getScore() > (question.getLevelLimit() / 2)) {
             int currentLevel = question.getLevelNumber();
             currentLevel++;
             switch (currentLevel) {
@@ -43,6 +43,9 @@ public class Main {
                 }
                 case 3 -> {
                     levelThreeStart(question);
+                }
+                case 4 -> {
+                    levelFourStart(question);
                 }
                 default -> {
                     finishedGame();
@@ -61,6 +64,11 @@ public class Main {
     public static void levelThreeStart(Question question) {
         Question levelThreeQuestion = new LevelThreeQuestionDecorator(question);
         startGame(levelThreeQuestion);
+    }
+
+    public static void levelFourStart(Question question) {
+        Question levelFourQuestion = new LevelFourQuestionDecorator(question);
+        startGame(levelFourQuestion);
     }
 
     public static void finishedGame() {
