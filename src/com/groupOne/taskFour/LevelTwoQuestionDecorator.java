@@ -17,7 +17,7 @@ public class LevelTwoQuestionDecorator extends QuestionDecorator {
         int operand3 = secureRandom.nextInt(10);
         int operand4 = secureRandom.nextInt(15);
         int operand5 = secureRandom.nextInt(15);
-        questionString = stringBuilder.append(operand1).append("+").append(operand2).append("+").append(operand3)
+        questionString = stringBuilder.append(operand1).append("+").append(operand2).append("+").append(operand3).append("+")
                 .append(operand4).append("+").append(operand5).toString();
         determineAnswer(operand1, operand2, operand3, operand4, operand5);
         return questionString;
@@ -30,6 +30,7 @@ public class LevelTwoQuestionDecorator extends QuestionDecorator {
             result += operand;
         }
         answer = result;
+//        System.out.println("answer is " +answer.toString());
     }
 
 }

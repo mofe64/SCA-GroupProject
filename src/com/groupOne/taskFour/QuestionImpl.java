@@ -14,7 +14,7 @@ public class QuestionImpl extends Question {
         clearPreviousQuestionState();
         int operand1 = secureRandom.nextInt(10);
         int operand2 = secureRandom.nextInt(10);
-        int operand3 = secureRandom.nextInt(10);
+        int operand3 = 1 + secureRandom.nextInt(10);
         questionString = stringBuilder.append(operand1).append("+").append(operand2).append("+").append(operand3).toString();
         determineAnswer(operand1, operand2, operand3);
         return questionString;
